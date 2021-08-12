@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ManajemenBuku({ bookList }) {
+function ManajemenBuku({ bookList, store }) {
   console.log(bookList);
   const [form, setForm] = useState("");
   const [inputBook, setInputBook] = useState();
@@ -16,6 +16,22 @@ function ManajemenBuku({ bookList }) {
     setForm("edit");
   }
 
+  function handleJudul(event) {
+    // console.log(event.target.value);
+    setInputBook({ ...inputBook, judul: event.target.value });
+  }
+
+  function handleStok(event) {
+    // console.log(event.target.value);
+    setInputBook({ ...inputBook, stok: event.target.value });
+  }
+
+  function submitAdd(event) {
+    event.preventDefault();
+    store(inputBook);
+    setForm("");
+  }
+
   return (
     <div className="container mt-3">
       <h1 className="text-center">Manajemen Buku</h1>
@@ -23,12 +39,24 @@ function ManajemenBuku({ bookList }) {
         <div id="formTambah">
           <h5>Tambah Buku</h5>
           <hr />
-          <form className="row">
+          <form className="row" onSubmit={submitAdd}>
             <div className="col-3">
-              <input type="text" name="judul" className="form-control mx-2" placeholder="Judul" />
+              <input
+                type="text"
+                name="judul"
+                className="form-control mx-2"
+                placeholder="Judul"
+                onChange={handleJudul}
+              />
             </div>
             <div className="col-2">
-              <input type="number" name="stok" className="form-control mx-2" placeholder="Stok" />
+              <input
+                type="number"
+                name="stok"
+                className="form-control mx-2"
+                placeholder="Stok"
+                onChange={handleStok}
+              />
             </div>
             <div className="col-2">
               <input type="submit" className="btn btn-success ml-5" value="Simpan" />
