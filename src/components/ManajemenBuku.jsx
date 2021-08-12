@@ -10,7 +10,22 @@ function ManajemenBuku({ bookList }) {
     <div className="container mt-3">
       <h1 className="text-center">Manajemen Buku</h1>
 
-      <div id="formTambah"></div>
+      <div id="formTambah">
+        <h5>Tambah Buku</h5>
+        <hr />
+        <form className="row">
+          <div className="col-3">
+            <input type="text" name="judul" className="form-control mx-2" placeholder="Judul" />
+          </div>
+          <div className="col-2">
+            <input type="number" name="stok" className="form-control mx-2" placeholder="Stok" />
+          </div>
+          <div className="col-2">
+            <input type="submit" className="btn btn-success ml-5" value="Simpan" />
+          </div>
+        </form>
+      </div>
+
       <div id="formUbah"></div>
       <div id="daftarBuku">
         <h2 className="mt-3">Daftar Buku</h2>
