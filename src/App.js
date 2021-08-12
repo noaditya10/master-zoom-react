@@ -13,6 +13,11 @@ function App() {
     console.log(inputBook);
     alert("Data berhasil ditambahkan!");
   }
+
+  function updateData(inputBook) {
+    console.log(inputBook);
+    alert("Data berhasil diperbarui!");
+  }
   return (
     <div>
       <Router>
@@ -24,7 +29,7 @@ function App() {
           </Route>
 
           <Route path="/manajemen-buku">
-            <ManajemenBuku bookList={books} store={storeData} />
+            <ManajemenBuku bookList={books} store={storeData} update={updateData} />
           </Route>
         </Switch>
       </Router>
