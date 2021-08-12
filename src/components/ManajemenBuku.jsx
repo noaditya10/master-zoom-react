@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ManajemenBuku({ bookList, store, update }) {
+function ManajemenBuku({ bookList, store, update, remove }) {
   console.log(bookList);
   const [form, setForm] = useState("");
   const [inputBook, setInputBook] = useState();
@@ -36,6 +36,10 @@ function ManajemenBuku({ bookList, store, update }) {
     event.preventDefault();
     update(inputBook);
     setForm("");
+  }
+
+  function deleteBook(book) {
+    remove(book);
   }
 
   return (
@@ -127,7 +131,9 @@ function ManajemenBuku({ bookList, store, update }) {
                   <button className="btn btn-info mr-3" onClick={() => showEdit(book)}>
                     Edit
                   </button>
-                  <button className="btn btn-danger">Hapus</button>
+                  <button className="btn btn-danger" onClick={() => deleteBook(book)}>
+                    Hapus
+                  </button>
                 </td>
               </tr>
             ))}

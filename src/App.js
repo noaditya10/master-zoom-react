@@ -18,6 +18,10 @@ function App() {
     console.log(inputBook);
     alert("Data berhasil diperbarui!");
   }
+  function removeData(inputBook) {
+    console.log(inputBook);
+    alert("Data berhasil dihapus!");
+  }
   return (
     <div>
       <Router>
@@ -29,7 +33,7 @@ function App() {
           </Route>
 
           <Route path="/manajemen-buku">
-            <ManajemenBuku bookList={books} store={storeData} update={updateData} />
+            <ManajemenBuku bookList={books} store={storeData} update={updateData} remove={removeData} />
           </Route>
         </Switch>
       </Router>
