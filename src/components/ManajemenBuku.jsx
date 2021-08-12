@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ManajemenBuku({ bookList, store }) {
+function ManajemenBuku({ bookList, store, update }) {
   console.log(bookList);
   const [form, setForm] = useState("");
   const [inputBook, setInputBook] = useState();
@@ -29,6 +29,12 @@ function ManajemenBuku({ bookList, store }) {
   function submitAdd(event) {
     event.preventDefault();
     store(inputBook);
+    setForm("");
+  }
+
+  function submitChange(event) {
+    event.preventDefault();
+    update(inputBook);
     setForm("");
   }
 
@@ -69,7 +75,7 @@ function ManajemenBuku({ bookList, store }) {
         <div id="formUbah">
           <h5>Ubah Buku</h5>
           <hr />
-          <form className="row">
+          <form className="row" onSubmit={submitChange}>
             <div className="col-3">
               <input
                 type="text"
