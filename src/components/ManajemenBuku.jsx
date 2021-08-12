@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function ManajemenBuku({ bookList }) {
   console.log(bookList);
   const [form, setForm] = useState("");
+  const [inputBook, setInputBook] = useState();
   //data
 
   //eventhandling
@@ -11,6 +12,7 @@ function ManajemenBuku({ bookList }) {
   }
 
   function showEdit(book) {
+    setInputBook(book);
     setForm("edit");
   }
 
@@ -41,10 +43,22 @@ function ManajemenBuku({ bookList }) {
           <hr />
           <form className="row">
             <div className="col-3">
-              <input type="text" name="judul" className="form-control mx-2" placeholder="Judul" />
+              <input
+                type="text"
+                name="judul"
+                className="form-control mx-2"
+                placeholder="Judul"
+                value={inputBook.judul}
+              />
             </div>
             <div className="col-2">
-              <input type="number" name="stok" className="form-control mx-2" placeholder="Stok" />
+              <input
+                type="number"
+                name="stok"
+                className="form-control mx-2"
+                placeholder="Stok"
+                value={inputBook.stok}
+              />
             </div>
             <div className="col-2">
               <input type="submit" className="btn btn-warning ml-2" value="Ubah" />
