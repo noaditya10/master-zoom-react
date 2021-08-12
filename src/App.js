@@ -19,7 +19,7 @@ function App() {
           </Route>
 
           <Route path="/manajemen-buku">
-            <ManajemenBuku />
+            <ManajemenBuku bookList={books} />
           </Route>
         </Switch>
       </Router>

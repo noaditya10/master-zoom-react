@@ -1,6 +1,7 @@
 import React from "react";
 
-function ManajemenBuku() {
+function ManajemenBuku({ bookList }) {
+  console.log(bookList);
   //data
 
   //eventhandling
