@@ -8,6 +8,11 @@ import { useState } from "react";
 
 function App() {
   const [books, setBooks] = useState([{ _id: 1, judul: "Laskar Pelangi", stok: 7 }]);
+
+  function storeData(inputBook) {
+    console.log(inputBook);
+    alert("Data berhasil ditambahkan!");
+  }
   return (
     <div>
       <Router>
@@ -19,7 +24,7 @@ function App() {
           </Route>
 
           <Route path="/manajemen-buku">
-            <ManajemenBuku bookList={books} />
+            <ManajemenBuku bookList={books} store={storeData} />
           </Route>
         </Switch>
       </Router>
