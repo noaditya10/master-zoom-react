@@ -4,8 +4,10 @@ import ManajemenBuku from "./components/ManajemenBuku";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Hello from "./components/Hello";
+import { useState } from "react";
 
 function App() {
+  const [books, setBooks] = useState([{ _id: 1, judul: "Laskar Pelangi", stok: 7 }]);
   return (
     <div>
       <Router>
